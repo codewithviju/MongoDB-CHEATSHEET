@@ -1,0 +1,281 @@
+// Complete MongoDB Course
+
+----------------------------------------------------------------
+(1) What is Mongodb?
+
+=> mongodb is document based database where each items store in BSON format
+=> it is NOSQL Database
+----------------------------------------------------------------
+
+(2) Example Of MongoDB
+
+How MongoDB Data Store ? 
+
+=>  [
+    {
+        _id: ObjectId("6344hjj"), (*)
+        name : "vijay",
+        age : 22,
+        hobbies : ["coding","learning"..],
+        isMarried : false
+    }
+    {
+        _id: ObjectId("6344hjj"), (*)
+        name : "vipul",
+        age : 23,
+        hobbies : ["coding","learning"..],
+        isMarried : false
+    }
+    ]
+----------------------------------------------------------------
+    Where (*) is Field
+
+    {} => Document
+
+    [] => Collection
+
+    Database => collection of collections
+
+
+    Quick Comparison Between MongoDB And MySQl
+
+    MySql               MongoDB
+    Database            Database
+    Table               Collection
+    Row                 Document
+    Column              Field
+----------------------------------------------------------------
+
+(3) How To Download MongoDB
+
+Go To This Link -> https://www.mongodb.com/try/download/community And Download it
+
+After Download You need to install it
+
+Simplete Install And mongodb will be installed
+
+----------------------------------------------------------------
+
+(4) Set Environment Variables
+
+Go to Environemnt Variable and insert new path name mongodb and give path to it
+
+Then you can use it globally
+
+----------------------------------------------------------------
+
+
+Warning :-
+
+After installing Mongodb you will nedd to install mongoshell in your computer. baecause mongodb insert new features store
+
+Install MongoSH
+
+URL - 
+----------------------------------------------------------------
+(5) Now You can use Mongodb in your Computer
+
+open CMD And type "mongosh" you will be enter in database
+
+
+-----------------------------------------------------------------
+
+(6) How To Show Databases?
+
+use -> "show dbs" Command
+
+example -> show dbs
+
+-----------------------------------------------------------------
+(7) How to Create Database?
+
+use -> "use <databse-name>" Command
+
+example :- use students
+
+-----------------------------------------------------------------
+
+(8) check Which database you are working?
+
+use -> "db" Command
+
+Example :- db
+
+-----------------------------------------------------------------
+
+(9) how to switch databse from one to another
+
+use -> "use <databse-name>" Command
+
+Example :- use test
+
+-----------------------------------------------------------------
+
+(10) How to Drop/Delete Database 
+
+use -> "db.dropDatabase()" Command
+
+Exmaple -> db.dropDatabase();
+
+// now your working database will be deleted
+
+-----------------------------------------------------------------
+
+(11) How To Create Collection in Mongodb
+
+use -> db.createCollection("<collection-name>",)
+
+Example -> db.createCollection("students")
+
+// your collection will be created
+-----------------------------------------------------------------
+(12) How to Create Collection with validator
+
+db.createCollection("students"{validator:{$jsonSchema:{bsonType:"object",required : ["name","age","salary"],properties :{}}}})
+-----------------------------------------------------------------
+(13) How to Create Collection With Insert Value in MongoDB
+
+use -> "db.<collection-name>.insertOne({"name":"vijay","age":23}) " Command
+
+Example -> db.students.insertOne({"name":"vijay","age":23})
+
+in this Example 2 Works done 
+
+=> i will automatically create colection with names students and also insert one document 
+
+-----------------------------------------------------------------
+
+(14) How To Show Collections
+
+use -> "show collections"
+
+Example -> show collections
+
+-----------------------------------------------------------------
+
+(15) How to show Complete detail of collection
+
+use  -> "db.getCollectionInfos({name : "<collection-name>"})
+
+Example -> db.getCollectionInfos({name : "students})
+
+-----------------------------------------------------------------
+
+(16) How To Drop Collection in Database?
+
+use -> "db.student.drop() " Command
+
+Example -> db.students.drop()
+-----------------------------------------------------------------
+
+(17) How to Get Data from Collection in MongoDB?
+
+( USe FIND MEthod)
+
+use -> "db.<collection-name>.find()" Command
+
+Example -> db.demo.find()
+
+-----------------------------------------------------------------
+
+(18) How to Insert Single Data in Collection in Mongodb?
+
+(USe InsertOne Method)
+
+use -> "db.<collection-name>/insertOne(<PAss-Object>)
+
+Example -> db.demo.insertOne({name : "vijay",age : 23})
+
+-----------------------------------------------------------------
+
+(19) How to Insert Multiple Data in Collection in Mongodb?
+
+(USe insertMany Method)
+
+use -> "db.<collection-name>/insertMany({},{}..{})
+
+Example -> db.demo.insertMany([{name : "vijay",age : 23},{name : "vipul",age : 24}])
+
+
+-----------------------------------------------------------------
+
+(20) How To Retrieve Single Records from Collection in Mongodb
+
+(use findOne Method)
+
+use -> "db.<collection-name>.findOne()"
+
+Example -> db.demo.findOne()
+
+//Note first data will be find and served
+
+-----------------------------------------------------------------
+(21) How To Limit Data ( Means if we want only first 2 records then we can use this )
+
+use -> "db.demo.find().limit(2)" Command
+
+Example -> "db.demo.find().limit(2)"
+
+// It will return first 2 data from the database
+
+-----------------------------------------------------------------
+
+(22) How to Get Specific data By (ID,name Or Other Field) in Collection
+
+use -> "db.demo.find({name : "name})" Command
+
+Example -> db.demo.find({name : "vijay"})
+
+// Only Record get that name = name
+
+-----------------------------------------------------------------
+
+(23) How To Update Single Data in Collection
+
+use -> "db.demo.updateOne({name : "name"},{$set : {<UPDATE VALUE>}})" Command
+
+Example -> db.demo.updateOne({name : "vijay"},{$set:{name : "vijay koladara"}})
+
+// update name Vijay Koladara where name = vijay
+
+-----------------------------------------------------------------
+
+(24) How To Update Multiple Data in Collection
+
+use -> "db.demo.updateMany({name : "name"},{$set : {<UPDATE VALUE>}})" Command
+
+Example -> db.demo.updateOne({name : "vijay"},{$set:{name : "vijay koladara"}})
+
+// update name Vijay Koladara where All the conatines name = vijay
+
+-----------------------------------------------------------------
+
+(25) How To Delete Single Data in Collection
+
+use -> "db.demo.deleteOne({<Propert-name>}) Command
+
+Example :- db.demo.deleteOne({age : 24}
+
+// Delete Record where age = 24
+
+-----------------------------------------------------------------
+
+(25) How To Delete Multiple Data in Collection
+
+use -> "db.demo.deleteMany({<Propert-name>}) Command
+
+Example :- db.demo.deleteMany({age : 24}
+
+// Delete All Record where age = 24
+
+-----------------------------------------------------------------
+
+(26) How To Drop Database in Database
+
+first switch the database
+
+use -> db.dropDatabase()
+
+Example -> db.dropDatabse()
+
+-----------------------------------------------------------------
